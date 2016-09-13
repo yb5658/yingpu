@@ -1,0 +1,19 @@
+<!-- 列表页 -->
+<extend name="Public/base" />
+<block name="main">
+	<div class="main_nr_4 fix">
+		<volist name="list" id="val">
+			<div class="div8 mt20">
+				<a href="{$val['url']}" class="fl"><img src="{:thumb($val['image'])}" width="253" height="162"></a>
+				<div class="div8_zi fr">
+					<h2><a href="{$val['url']}">{:msubstr($val['title'], 0, 25)}</a></h2>
+					<i>{:date('Y-m-d', $val['create_time'])}</i> {:msubstr($val['description'], 0, 150)}
+					<a href="{$val['url']}">查看详情>></a>
+				</div>
+			</div>
+		</volist>
+	</div>
+	<div class="pages mt30 fix">
+		{$_page}
+	</div>
+</block>

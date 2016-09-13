@@ -1,0 +1,12 @@
+<!-- 技术研发列表页 -->
+<extend name="Public/base" />
+<block name="main">
+	<div class="main_nr_3 fix">
+		<volist name="list" id="val">
+			<a href="{$val['url']}"><img src="{:thumb($val['image'])}" width="361" height="242"><span>{:msubstr($val['title'], 0, 25)}</span></a>
+		</volist>
+	</div>
+	<div class="pages mt50 fix">
+		{$_page}
+	</div>
+</block>

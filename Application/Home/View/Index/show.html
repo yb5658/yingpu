@@ -1,0 +1,13 @@
+<!-- 详情页 -->
+<extend name="Public/base" />
+<block name="main">
+	<div class="main_nr_5 fix fs">
+		<h2>
+			<a href="javascript:void(0);">{$info['title']}</a>
+			<span>来源：{$info['extends']['lianyuan']}&nbsp;&nbsp;时间：{:date('Y-m-d', $info['create_time'])}</span>
+		</h2>
+		<div>
+			{$info['content']}
+		</div>
+	</div>
+</block>

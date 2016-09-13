@@ -1,0 +1,213 @@
+<!-- 首页 -->
+<extend name="Public/base" />
+<block name="header">
+    <div class="banner rel">
+        <section class="slideBox">
+            <div class="bd">
+                <ul>
+                    <php>$banner_1 = get_banner(1);</php>
+                    <empty name="banner_1">
+                        <li><a href="javascript:void(0);" style="background:url(__HOME__images/pic43.jpg) center top no-repeat">&nbsp;</a></li>
+                        <else />
+                        <volist name="banner_1" id="val">
+                            <li><a href="{$val['url']}" style="background:url({:thumb($val['image'])}) center top no-repeat">&nbsp;</a></li>
+                        </volist>
+                    </empty>
+                </ul>
+            </div>
+            <div class="jiantou">
+                <a class="prev" href="javascript:void(0)"></a>
+                <a class="next" href="javascript:void(0)"></a>
+            </div>
+        </section>
+        <div class="dh container auto fix">
+            <div class="dhh fl">
+                <php>$banner_4 = get_banner(4, 1);</php>
+                <empty name="banner_4">
+                    <img src="__HOME__images/pic9.png" width="178" height="30">
+                    <else />
+                    <volist name="banner_4" id="val">
+                        <img src="{:thumb($val['image'])}" width="178" height="30">
+                    </volist>
+                </empty>
+            </div>
+            <div class="ewm fr">
+                <span>微信二维码</span>
+                <php>$banner_2 = get_banner(2, 1);</php>
+                <empty name="banner_2">
+                    <a href="javascript:void(0);"><img src="__HOME__images/pic44.png" width="81" height="81"></a>
+                    <else />
+                    <volist name="banner_2" id="val">
+                        <a href="javascript:void(0);"><img src="{:thumb($val['image'])}" width="81" height="81"></a>
+                    </volist>
+                </empty>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(".slideBox").slide({
+            mainCell: ".bd ul",
+            autoPlay: true
+        });
+    </script>
+    <div class="kuai1 container auto fix">
+        <div id="left"><img src="__HOME__images/pic19.png" width="39" height="76" /></div>
+        <div class="big_middle">
+            <div id="middle">
+                <volist name="NAVS" id="val">
+                    <a href="{$val['url']}">
+                        <div class="img">
+                            <img src="{:thumb($val['setting']['ico_1'])}" width="74" height="55" class="img2">
+                            <img src="{:thumb($val['setting']['ico_2'])}" width="74" height="55" class="img3">
+                        </div>
+                        <span>{$val['title']}</span>
+                    </a>
+                </volist>
+
+            </div>
+        </div>
+        <div id="right"><img src="__HOME__images/pic20.png" width="39" height="76" /></div>
+    </div>
+    <div class="jian"></div>
+</block>
+
+<block name="content">
+    <div class="kuai2 container auto fix">
+        <div class="top">
+            <a href="#">
+                <h2>{$CATEGORYS[1]['title']}</h2>
+                <img src="__HOME__images/pic22.png" width="307" height="24">
+            </a>
+        </div>
+        <div class="kuai2_l fs fl fix">
+            {$CATEGORYS[1]['description']}
+            <a href="{$CATEGORYS[1]['url']}">查看更多</a>
+        </div>
+        <div class="kuai2_r fr">
+			<embed src="{:C('VIDEO')}" quality="high" width="685" height="428" align="middle" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed>
+<!--             <video id="video" onclick="playPause()" controls loop width="685" height="428" poster="__HOME__images/pic25.jpg">
+                <source src="http://wslc.sypole.com/wp-content/themes/jfsd/video/video_1920x1080.ogv" type='video/ogg; codecs="theora, vorbis"' />
+                <source src="http://wslc.sypole.com/wp-content/themes/jfsd/video/video_1920x1080.webm" type='video/webm'>
+                <source src="http://wslc.sypole.com/wp-content/themes/jfsd/video/video_1920x1080.mp4" type='video/mp4'>
+                <p>Video is not visible, most likely your browser does not support HTML5 video</p>
+            </video> -->
+            <!-- <a href="#"><img src="__HOME__images/pic25.jpg" width="685" height="428"></a> -->
+        </div>
+    </div>
+    <script type="text/javascript">
+        function playPause() {
+            var myVideo = document.getElementById('video');
+            if (myVideo.paused) {
+                myVideo.play();
+            } else {
+                myVideo.pause();
+            }
+        }
+    </script>
+    <div class="jian"></div>
+
+    <div class="kuai3 container auto fix">
+        <div class="top">
+            <a href="{$CATEGORYS[2]['url']}">
+                <h2>{$CATEGORYS[2]['title']}</h2>
+                <img src="__HOME__images/pic26.png" width="221" height="24">
+            </a>
+        </div>
+        <div class="bigmiddle fix rel">
+            <div class="fix">
+                <div class="jiantou2">
+                    <div id="left2"></div>
+                    <div id="right2"></div>
+                </div>
+            </div>
+            <div id="middle2">
+                <ul>
+                    <li class="fix">
+                        <volist name=":get_lists(2, 8)" id="val" offset="0" length="4">
+                            <div class="div2">
+                                <bdo>{:date('Y-m', $val['create_time'])}<i>{:date('d', $val['create_time'])}</i></bdo>
+                                <span>
+                              <em>{:msubstr($val['title'], 0, 25)}</em>
+                              <b>{:date('Y-m-d', $val['create_time'])}</b>
+                               {:msubstr($val['description'], 0, 70)}<a href="{$val['url']}">【详情】</a>
+                            </span>
+                            </div>
+                        </volist>
+                    </li>
+                    <li class="fix">
+                        <volist name=":get_lists(2, 8)" id="val" offset="4" length="4">
+                            <div class="div2">
+                                <bdo>{:date('Y-m', $val['create_time'])}<i>{:date('d', $val['create_time'])}</i></bdo>
+                                <span>
+                              <em>{:msubstr($val['title'], 0, 25)}</em>
+                              <b>{:date('Y-m-d', $val['create_time'])}</b>
+                               {:msubstr($val['description'], 0, 70)}<a href="{$val['url']}">【详情】</a>
+                            </span>
+                            </div>
+                        </volist>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="jian"></div>
+
+    <div class="kuai4 fix">
+        <div class="top">
+            <a href="{$CATEGORYS[17]['url']}">
+                <h2>{$CATEGORYS[17]['title']}</h2>
+                <img src="__HOME__images/pic31.png" width="301" height="24">
+            </a>
+        </div>
+        <ul class="fix">
+            <volist name=":get_lists(17, 8)" id="val">
+                <li class="rel">
+                    <a href="{$val['url']}"><img src="{:thumb($val['image'])}"><span>{:msubstr($val['title'], 0, 25)}</span></a>
+                </li>
+            </volist>
+        </ul>
+        <div class="bigmore">
+            <a href="{$CATEGORYS[17]['url']}" class="more">查看更多>></a>
+        </div>
+    </div>
+
+    <div class="jian"></div>
+
+    <div class="kuai5 container auto fix">
+        <div class="top">
+            <a href="javascript:void(0);">
+                <h2>荣誉资质</h2>
+                <img src="__HOME__images/pic34.png" width="411" height="24">
+            </a>
+        </div>
+        <div class="zizhi">
+            <div id="left3"></div>
+            <div id="middle3">
+                <php>$banner_6 = get_banner(6);</php>
+                <empty name="banner_6">
+                    <a href="javascript:void(0);"><img src="__HOME__images/pic35.jpg" width="336" height="283"><span>荣誉资质名称01</span></a>
+                    <a href="javascript:void(0);"><img src="__HOME__images/pic35.jpg" width="336" height="283"><span>荣誉资质名称01</span></a>
+                    <a href="javascript:void(0);"><img src="__HOME__images/pic35.jpg" width="336" height="283"><span>荣誉资质名称01</span></a>
+                    <else />
+                    <volist name="banner_6" id="val">
+                        <a href="{$val['url']}"><img src="{:thumb($val['image'])}" width="336" height="283"><span>{$val['title']}</span></a>
+                    </volist>
+                </empty>
+            </div>
+            <div id="right3"></div>
+        </div>
+    </div>
+    <div class="jian"></div>
+    <div class="kuai6 container auto fix">
+        <div class="top">
+            <a href="{$CATEGORYS[20]['url']}">
+                <h2>{$CATEGORYS[20]['title']}</h2>
+                <img src="__HOME__images/pic40.png" width="274" height="24">
+            </a>
+        </div>
+        <div class="kuai6_nr">
+            {:W('Index/message')}
+        </div>
+    </div>
+</block>

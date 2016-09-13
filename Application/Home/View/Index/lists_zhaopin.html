@@ -1,0 +1,28 @@
+<!-- 公司招聘列表页 -->
+<extend name="Public/base" />
+<block name="main">
+	<div class="main_nr_2">
+		<volist name="list" id="val">
+		<div class="div7 fix">
+			<div class="div7_t fix rel">
+				<h2>
+               <img src="__HOME__images/pic54.png" width="13" height="13" class="img3">
+               <img src="__HOME__images/pic55.png" width="13" height="13" class="img4">
+               {$val['title']}
+             </h2>
+				<a href="{$val['extends']['sqzw']}">申请职位</a>
+			</div>
+			<div class="div7_nr fix">
+				<p>岗位职责：</p>
+				{:get_content($val['extends']['gwzz'])}
+				<p>岗位要求：</p>
+				{:get_content($val['extends']['gwyq'])}
+				<br>
+			</div>
+		</div>
+		</volist>
+	</div>
+	<div class="pages mt80">
+		{$_page}
+	</div>
+</block>
