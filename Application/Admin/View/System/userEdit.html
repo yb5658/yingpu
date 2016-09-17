@@ -1,0 +1,79 @@
+<div class="hdtop">
+    <a href="{:U('index')}" class="tja">返回列表</a>
+
+    <div class="clear"></div>
+</div>
+<style media="screen">
+    .ms select {
+        padding:0px 10px;height:24px;border:solid 1px #d2d2d2;margin-right:10px; background:#fafafa
+    }
+    .select {width:400px;}
+    .text1{height:100px;}
+</style>
+
+<form action="" method="post">
+<table width="900" border="0" cellspacing="0" cellpadding="0" class="table">
+    <tr>
+        <td class="td1" align="right">角色分组：</td>
+        <td class="ms">
+            <select class="select" name="group_id">
+                <option value="{$banner_info['id']}">{$banner_info['name']}</option>
+            </select>
+            （角色分组）
+        </td>
+    </tr>
+    <tr>
+        <td class="td1" align="right">用户名：</td>
+        <td class="ms">
+            <input type="text" name="user" value="{$info['user']|default=''}" class="inputt input" />
+            （用户名）
+        </td>
+    </tr>
+    <tr>
+        <td class="td1" align="right">密码：</td>
+        <td class="ms">
+            <input type="text" name="pass" value="" class="inputt input" />
+            （密码）
+        </td>
+    </tr>
+    <tr>
+        <td class="td1" align="right">手机号：</td>
+        <td class="ms">
+            <input type="text" name="mobile" value="{$info['mobile']|default=''}" class="inputt input" />
+            （手机号）
+        </td>
+    </tr>
+
+    <tr>
+        <td class="td1" align="right">排序：</td>
+        <td class="ms">
+            <input type="text" name="sort" value="{$info['sort']|default=0}" class="inputt input" />
+            （排序sort desc, id desc）
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+             <input type="hidden" name="id" value="{$info.id|default=''}">
+             <input type="hidden" name="sid" value="{$info.sid|default=''}">
+             <input type="submit" class="tjanniu cr" value="提 交" /><input type="reset" class="czanniu cr" value="重 置" />
+        </td>
+    </tr>
+</table>
+</form>
+
+<!-- 图片上传 -->
+<script type="text/javascript">
+    var Tool = {};
+    $(function(){
+        // 上传处理
+        Tool.uploadSend = function(){
+            $(".upload-row").each(function(i){
+                $(this).find(".button1").click(function(){
+                    window.open('{:U('Tool/uploadImage', '', '')}&id='+ i, '文件上传', 'height=100, width=400, top='+(screen.availHeight-100)/2+', left='+(screen.availWidth-400)/2+', toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no');
+                })
+            })
+        }
+        // 绑定
+        Tool.uploadSend();
+    })
+</script>

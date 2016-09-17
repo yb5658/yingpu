@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+<head lang="en">
+	<meta http-equiv="X-UA-Compatible" content="edge" />
+	<meta charset="utf-8">
+	<title>{:C('WEB_SITE_TITLE')}</title>
+	<meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+	<meta name="description" content="{:C('WEB_SITE_DESCRIPTION')}">
+	<!--[if lt IE 11]>
+<script src="__HOME__js/html5shiv.min.js"></script>
+<script src="__HOME__js/respond.min.1.4.2.js"></script>
+<![endif]-->
+	<!--单独CSS-->
+	<link type="text/css" rel="stylesheet" href="__HOME__css/style.css" />
+	<!--公共样式+公共JS-->
+	<link type="text/css" rel="stylesheet" href="__HOME__css/common.css">
+	<script type="text/javascript" src="__HOME__js/jquery.js"></script>
+	<script type="text/javascript" src="__HOME__js/placeholder.js"></script>
+	<script type="text/javascript" src="__HOME__js/jquery.SuperSlide.2.1.js"></script>
+	<!--单独JS-->
+	<script type="text/javascript" src="__HOME__js/all_js.js"></script>
+</head>
+
+<body>
+	<!--头部 start-->
+	<header id="header" class="fix auto">
+		<div class="wid1200 fix auto rel">
+			<a href="{:U('Index/index')}" class="dib fl mt15"><img src="__HOME__images/logo.png" width="175" height="70" class="vm"></a>
+			<ul class="nav_3 fix fl">
+				<li class="li_1 <if condition="CONTROLLER_NAME == 'Beike'">li_1_h</if>"><a href="{:U('Beike/index')}"><span>备课</span></a></li>
+				<li class="li_2 <if condition="CONTROLLER_NAME == 'Shouke'">li_1_h</if>"><a href="{:U('Shouke/index')}"><span>授课</span></a></li>
+				<li class="li_3 <if condition="CONTROLLER_NAME == 'Jiaowu'">li_1_h</if>"><a href="{:U('Jiaowu/index')}"><span>教务管理</span></a></li>
+				<li class="li_4 <if condition="CONTROLLER_NAME == 'Peixun'">li_1_h</if>"><a href="{:U('Peixun/index')}"><span>培训</span></a></li>
+				<li class="li_5 <if condition="CONTROLLER_NAME == 'Ceping'">li_1_h</if>"><a href="{:U('Ceping/index')}"><span>测评</span></a></li>
+				<li class="li_6"><a href="javascript:alert('这个链接是外链');"><span>外教官</span></a></li>
+			</ul>
+			<span class="sp_2 fr">
+        	<a href="{:U('Index/logout')}">安全退出</a>
+        </span>
+		</div>
+	</header>
+	<!--头部 end-->
+	<!--主体 start-->
+	<block name="main"></block>
+	<!--主体 end-->
+	<!--尾部 start-->
+	<footer id="footer" class="fix auto bgnone">
+		<div class="div_4 fix">
+			<div class="wid1200 auto rel">
+				<table cellpadding="0" cellspacing="0" border="0" width="1200" class="ta_1">
+					<tbody>
+						<tr>
+							<td width="300">
+								<div class="div_3 fix">
+									<h2 class="h_1"><a href="#">关于我们</a></h2>
+									<ul class="nav_1 fix">
+										<li><a href="#">- 企业介绍</a></li>
+										<li><a href="#">- 去上学优势</a></li>
+										<li><a href="#">- 教研团队介绍</a></li>
+										<li><a href="#">- 合作客户</a></li>
+									</ul>
+								</div>
+							</td>
+							<td width="300">
+								<div class="div_3 fix">
+									<h2 class="h_1"><a href="#">品牌课程体系</a></h2>
+									<ul class="nav_1 fix">
+										<li><a href="#">- 自然拼读英语启蒙课程</a></li>
+										<li><a href="#">- 3-6岁幼儿英语进阶课程</a></li>
+										<li><a href="#">- 6-12岁少儿英语腾飞课程</a></li>
+										<li><a href="#">- 6-16岁优浦专项技能课程</a></li>
+										<li><a href="#">- 3-16岁阅读课程（巴布书屋）</a></li>
+										<li><a href="#">- 6-16岁优浦特色创意课程</a></li>
+									</ul>
+								</div>
+							</td>
+							<td width="300">
+								<div class="div_3 fix">
+									<h2 class="h_1"><a href="#">营销与落地支持</a></h2>
+									<ul class="nav_1 fix">
+										<li><a href="#">- 英浦大后台</a></li>
+										<li><a href="#">- 营销支持</a></li>
+										<li><a href="#">- 测评系统</a></li>
+										<li><a href="#">- 教师培训</a></li>
+									</ul>
+								</div>
+							</td>
+							<td width="300" class="bgnone">
+								<div class="div_3 fix">
+									<h2 class="h_1"><a href="#">合作</a></h2>
+									<ul class="nav_1 fix">
+										<li><a>- 联系电话：<span>4000-870-850</span></a></li>
+										<li><a href="#">- 申请试用</a></li>
+										<li><a href="#">- 在线签约</a></li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="div_2 tc">京ICP备16020147号 京公网安备2016061511号</div>
+	</footer>
+	<!--尾部 end-->
+</body>
+
+</html>

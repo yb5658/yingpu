@@ -20,4 +20,12 @@ return array(
     //'TMPL_EXCEPTION_FILE'   =>  'Public/exception',// 异常页面的模板文件
 
     //'IS_ROOT'   =>  array(1),   //array(1,2,3,4) 管理员id写入就会拥有超级管理员权限
+    
+    /* COOKIE参数 */
+    'COOKIE_EXPIRE' => 3600,
+    'COOKIE_DOMAIN' => '',
+    'COOKIE_PREFIX' => 'jfsd_admin_',
+
+    /*  SESSION设置 */
+    'SESSION_PREFIX'        =>  'jfsd_admin_', // session 前缀
 );

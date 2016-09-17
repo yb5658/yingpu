@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>{$meta_title}</title>
+	<meta name="keywords" content="{$meta_keywords}">
+	<meta name="description" content="{$meta_description}">
+	<!--[if lt IE 9]>
+    <script src="__HOME__js/html5shiv.min.js"></script>
+    <script src="__HOME__js/respond.min.js"></script>
+    <![endif]-->
+	<link href="__COMMON__video/video-js.min.css" rel="stylesheet">
+	<script src="__COMMON__video/video.min.js"></script>
+	<link rel="stylesheet" href="__HOME__css/common.css" />
+	<link rel="stylesheet" href="__HOME__css/style.css" />
+	<script src="__HOME__js/jquery-1.9.1.min.js"></script>
+	<script src="__HOME__js/js.js"></script>
+	<script src="__HOME__js/myjs.js"></script>
+	<eq name="is_index" value="1">
+		<script type="text/javascript" src="__HOME__js/jquery.SuperSlide.2.1.1.js"></script>
+	</eq>
+</head>
+
+<body>
+	<header>
+		<div class="container auto fix rel">
+			<div class="logo">
+				<a href="index.html"><img src="__HOME__images/pic1.png" width="285" height="80"></a>
+			</div>
+			<div class="nav">
+				<ul>
+					<li <eq name="is_index" value="1">class="xz"</eq>><a href="{:U('/')}">网站首页</a></li>
+					<volist name="NAVS" id="val">
+						<li <eq name="val['id']" value="$top_catid">class="xz"</eq>>
+							<a href="{$val['url']}">{$val['title']}</a>
+							<div class="xiala fs">
+								<ul>
+									<volist name=":get_category($val['id'])" id="v">
+										<li><a href="{$v['url']}">{$v['title']}</a></li>
+									</volist>
+								</ul>
+							</div>
+						</li>
+					</volist>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<!--header end-->
+	<!--header end-->
+	<block name="header">
+		<div class="banner2" style="background:url({:thumb($CATEGORYS[$top_catid]['image'])}) center top no-repeat;"></div>
+	</block>
+	<block name="content">
+		<div class="main container auto fix">
+			<div class="big_main_t">
+				<div class="main_t fs mt20">
+					当前位置：{:catpos($catid)}
+				</div>
+			</div>
+			<div class="main_t_2 tc">
+			<volist name=":get_category($CAT['pid'])" id="val">
+				<a href="{$val['url']}" <eq name="val['id']" value="$catid"> class="xz"</eq>>{$val['title']}<img src="__HOME__images/pic49.png"></a>
+			</volist>
+			</div>
+			<block name="main"></block>
+		</div>
+	</block>
+
+	<footer class="mt50">
+		<div class="shang">
+			<div class="shang_nr container auto fix">
+				<div class="shang_nr_l fl">
+					<volist name="NAVS" id="val">
+						<ul>
+							<li><a href="{$val['url']}">{$val['title']}</a></li>
+							<volist name=":get_category($val['id'])" id="v">
+								<li><a href="{$v['url']}">{$v['title']}</a></li>
+							</volist>
+						</ul>
+					</volist>
+				</div>
+				<div class="shang_nr_r fr">
+					<span>{:C('ADDRESS')}</span>
+					<php>$banner_5 = get_banner(5, 1);</php>
+					<empty name="banner_5">
+						<bdo><img src="__HOME__images/pic46.png" width="118" height="12"></bdo>
+					<else />
+						<volist name="banner_5" id="val">
+							<bdo><img src="{:thumb($val['image'])}" width="118" height="12"></bdo>
+						</volist>
+					</empty>
+				</div>
+			</div>
+		</div>
+		<div class="xia">
+			<div class="xia_nr container auto fix fs">
+				{:C('COPYRIGHT')}
+			</div>
+		</div>
+	</footer>
+	<!--footer end-->
+
+	<eq name="is_index" value="1">
+		<script language="javascript">
+			$(function() {
+				var scrollPic_01 = new ScrollPic();
+				scrollPic_01.scrollContId = "middle"; //内容容器ID
+				scrollPic_01.arrLeftId = "left"; //左箭头ID
+				scrollPic_01.arrRightId = "right"; //右箭头ID
+				scrollPic_01.frameWidth = 1122; //显示框宽度
+				scrollPic_01.pageWidth = 281; //翻页宽度
+				scrollPic_01.speed = 40; //移动速度(单位毫秒，越小越快)
+				scrollPic_01.space = 20; //每次移动像素(单位px，越大越快)
+				scrollPic_01.autoPlay = false; //自动播放
+				scrollPic_01.autoPlayTime = 3; //自动播放间隔时间(秒)
+				scrollPic_01.initialize(); //初始化
+			})
+		</script>
+
+		<script language="javascript">
+			$(function() {
+				var scrollPic_01 = new ScrollPic();
+				scrollPic_01.scrollContId = "middle2"; //内容容器ID
+				scrollPic_01.arrLeftId = "left2"; //左箭头ID
+				scrollPic_01.arrRightId = "right2"; //右箭头ID
+				scrollPic_01.frameWidth = 1200; //显示框宽度
+				scrollPic_01.pageWidth = 1200; //翻页宽度
+				scrollPic_01.speed = 35; //移动速度(单位毫秒，越小越快)
+				scrollPic_01.space = 25; //每次移动像素(单位px，越大越快)
+				scrollPic_01.autoPlay = false; //自动播放
+				scrollPic_01.autoPlayTime = 3; //自动播放间隔时间(秒)
+				scrollPic_01.initialize(); //初始化
+			})
+		</script>
+
+		<script language="javascript">
+			$(function() {
+				var scrollPic_01 = new ScrollPic();
+				scrollPic_01.scrollContId = "middle3"; //内容容器ID
+				scrollPic_01.arrLeftId = "left3"; //左箭头ID
+				scrollPic_01.arrRightId = "right3"; //右箭头ID
+				scrollPic_01.frameWidth = 1057; //显示框宽度
+				scrollPic_01.pageWidth = 360; //翻页宽度
+				scrollPic_01.speed = 35; //移动速度(单位毫秒，越小越快)
+				scrollPic_01.space = 25; //每次移动像素(单位px，越大越快)
+				scrollPic_01.autoPlay = false; //自动播放
+				scrollPic_01.autoPlayTime = 3; //自动播放间隔时间(秒)
+				scrollPic_01.initialize(); //初始化
+			})
+		</script>
+	</eq>
+
+</html>
+</body>

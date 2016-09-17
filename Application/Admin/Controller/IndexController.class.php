@@ -15,13 +15,6 @@ class IndexController extends AController {
 
     /* 网站首页 */
     public function index(){
-        // $version = trim(file_get_contents('http://wuwenbao.github.io/JFSD_CMS_SERVION.txt'));
-        // if (CMS_VERSION == $version) {
-        //     $new_version = array('status'=>0, 'version' => $version);
-        // } else {
-        //     $new_version = array('status'=>1, 'version' => $version);
-        // }
-        // $this->assign('new_version', $new_version);
         $this->meta_title = '网站首页';
         $this->display();
     }

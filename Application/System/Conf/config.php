@@ -4,19 +4,14 @@ return array(
     /* URL大小写区分 */
     'URL_MODEL' => 2, //0:普通模式,1:PATHINFO模式,2:REWRITE模式,3:兼容模式
     'URL_PATHINFO_DEPR'     =>  '/',
+
     /* 模板相关配置 */
     'TMPL_PARSE_STRING' => array(
         '__COMMON__' => __ROOT__ . '/Public/Common/',
-        '__HOME__'   => __ROOT__ . '/Public/' . MODULE_NAME . '/',
-        '__IMG__'    => __ROOT__ . '/Public/' . MODULE_NAME . '/images/',
-        '__CSS__'    => __ROOT__ . '/Public/' . MODULE_NAME . '/css/',
-        '__JS__'     => __ROOT__ . '/Public/' . MODULE_NAME . '/js/',
-    ),
-    /* 开启路由 */
-    'URL_ROUTER_ON'   => true,
-    'URL_ROUTE_RULES'=>array(
-        //'lists' => array('Index/lists'),
-        //'n/:id\d' => 'Index/lists/catid/:1'
+        '__HOME__'   => __ROOT__ . '/Public/Home/',
+        '__IMG__'    => __ROOT__ . '/Public/Home/images/',
+        '__CSS__'    => __ROOT__ . '/Public/Home/css/',
+        '__JS__'     => __ROOT__ . '/Public/Home/js/',
     ),
 
     /* 后台错误页面模板 */
@@ -24,7 +19,11 @@ return array(
     'TMPL_ACTION_SUCCESS'   =>  'Public/success', // 默认成功跳转对应的模板文件
     //'TMPL_EXCEPTION_FILE'   =>  'Public/exception',// 异常页面的模板文件
 
-    /* 自定义标签库 */
-    // 'TAGLIB_BUILD_IN'   => 'Cx,Content',
-    // 'TAGLIB_PRE_LOAD'   => 'Cx,Content',
+    /* COOKIE参数 */
+    'COOKIE_EXPIRE' => 3600,
+    'COOKIE_DOMAIN' => '',
+    'COOKIE_PREFIX' => 'jfsd_system_',
+
+    /*  SESSION设置 */
+    'SESSION_PREFIX'        =>  'jfsd_system_', // session 前缀
 );

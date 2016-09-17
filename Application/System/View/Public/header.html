@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>{$meta_title}</title>
+	<meta name="keywords" content="{$meta_keywords}">
+	<meta name="description" content="{$meta_description}">
+	<!--[if lt IE 9]>
+    <script src="__HOME__js/html5shiv.min.js"></script>
+    <script src="__HOME__js/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="__HOME__css/common.css" />
+	<link rel="stylesheet" href="__HOME__css/style.css" />
+	<script src="__HOME__js/jquery-1.9.1.min.js"></script>
+	<script src="__HOME__js/myjs.js"></script>
+	<black name="js"></black>
+</head>
+
+<body>
+	<section class="wapper"></section>
+	<header>
+		<section class="container auto fix rel header">
+			<a href="{:U('indexx')}" class="logo"><img src="__HOME__images/logo.png" width="101" height="90"></a>
+			<nav class="fl">
+				<ul>
+					<li><a href="{:U('index')}" <empty name="catid">class="xz"</empty>>网站首页</a></li>
+					<volist name="NAVS" id="val">
+						<li><a href="{$val['url']}" <notempty name="val['action']">class="xz"</notempty>>{$val['title']}</a></li>
+						<if condition="$i == 2">
+				</ul>
+			</nav>
+			<nav class="fr">
+				<ul>
+					</if>
+					</volist>
+				</ul>
+			</nav>
+		</section>
+	</header>
+	<!--header end-->
+	<!--header end-->
+	<block name="banner">
+		<section class="banner" style="background:url({:thumb($CATEGORYS[$top_catid]['image'])}) center top no-repeat;"></section>
+		<section class="tip">
+			<section class="container auto fix rel">
+				<span>{$CATEGORYS[$top_catid]['title']}</span>
+				<ul>
+					<volist name=":get_category($CAT['pid'])" id="val">
+						<eq name="key" value="$catid">
+							<li class="xz"><a href="{$val['url']}">{$val['title']}</a></li>
+							<else />
+							<li><a href="{$val['url']}">{$val['title']}</a></li>
+						</eq>
+					</volist>
+				</ul>
+				<div class="bread-crumes">
+					您当前所在位置：{:catpos($catid)}
+				</div>
+			</section>
+		</section>
+	</block>
+	<block name="main">
+		<div class="container auto fix">
+			
+		</div>
+	</block>
+	<footer>
+		<div class="footer">
+			<div class="container auto fix rel">
+				<volist name="NAVS" id="val">
+					<ul class="ul1">
+						<li><a href="{$val['url']}">{$val['title']}</a></li>
+						<volist name=":get_category($key)" id="v">
+							<li><a href="{$v['url']}">{$v['title']}</a></li>
+						</volist>
+					</ul>
+				</volist>
+				<div class="ewm">
+					<php>$banner_3 = get_banner(3,1);</php>
+					<empty name="banner_3">
+						<img src="__HOME__images/ewm.jpg" width="87" height="86">
+						<span>微信公众号</span>
+						<else />
+						<volist name="banner_3" id="val">
+							<img src="{:thumb($val['image'])}" width="87" height="86">
+							<span>{$val['title']}</span>
+						</volist>
+					</empty>
+				</div>
+			</div>
+		</div>
+		<div class="container auto">
+			{:C('COPYRIGHT')}
+		</div>
+	</footer>
+	<!--footer end-->
+</body>
+
+</html>
