@@ -1,0 +1,12 @@
+1:menu/edit
+1:menu/edit
+1:menu/edit
+1:system/add
+1:system/edit
+1:system/edit
+1:config/edit
+1:config/edit
+1:config/add
+1:system/add
+2:config/save
+1:system/edit

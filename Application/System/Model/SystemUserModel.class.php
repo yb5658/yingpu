@@ -87,4 +87,15 @@ class SystemUserModel extends Model
         session('user_auth', null);
         session('user_auth_sign', null);
     }
+
+    public function getUserInfoById($uid)
+    {
+        $user_info = $this->find($uid);
+        if ($user_info) {
+            $user_info['scholl'] = M('SystemScholl')->find($user_info['sid']);
+            return $user_info;
+        } else {
+            return array();
+        }
+    }
 }
