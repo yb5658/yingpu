@@ -1,12 +1,14 @@
 @charset "utf-8";
 /* CSS Document */
-
 html {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
 body {
+  font-family: "微软雅黑";
+  font-size: 12px;
+  line-height:inherit;
     margin: 0;
 }
 article,
@@ -185,15 +187,6 @@ td,
 th {
   padding: 0;
 }
-
-
-body {
-  font-family: "宋体", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.42857143;
-  color: #333;
-  background-color: #fff;
-}
 input,
 button,
 select,
@@ -205,16 +198,6 @@ textarea {
 a {
   text-decoration: none;
 }
-a:hover,
-a:focus {
-  text-decoration: none;
-}
-a:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
-
 body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dt,dd,form{
     margin:0;
 }

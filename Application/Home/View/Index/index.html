@@ -1,213 +1,466 @@
-<!-- 首页 -->
-<extend name="Public/base" />
-<block name="header">
-    <div class="banner rel">
-        <section class="slideBox">
-            <div class="bd">
-                <ul>
-                    <php>$banner_1 = get_banner(1);</php>
-                    <empty name="banner_1">
-                        <li><a href="javascript:void(0);" style="background:url(__HOME__images/pic43.jpg) center top no-repeat">&nbsp;</a></li>
-                        <else />
-                        <volist name="banner_1" id="val">
-                            <li><a href="{$val['url']}" style="background:url({:thumb($val['image'])}) center top no-repeat">&nbsp;</a></li>
-                        </volist>
-                    </empty>
-                </ul>
-            </div>
-            <div class="jiantou">
-                <a class="prev" href="javascript:void(0)"></a>
-                <a class="next" href="javascript:void(0)"></a>
-            </div>
-        </section>
-        <div class="dh container auto fix">
-            <div class="dhh fl">
-                <php>$banner_4 = get_banner(4, 1);</php>
-                <empty name="banner_4">
-                    <img src="__HOME__images/pic9.png" width="178" height="30">
-                    <else />
-                    <volist name="banner_4" id="val">
-                        <img src="{:thumb($val['image'])}" width="178" height="30">
-                    </volist>
-                </empty>
-            </div>
-            <div class="ewm fr">
-                <span>微信二维码</span>
-                <php>$banner_2 = get_banner(2, 1);</php>
-                <empty name="banner_2">
-                    <a href="javascript:void(0);"><img src="__HOME__images/pic44.png" width="81" height="81"></a>
-                    <else />
-                    <volist name="banner_2" id="val">
-                        <a href="javascript:void(0);"><img src="{:thumb($val['image'])}" width="81" height="81"></a>
-                    </volist>
-                </empty>
-            </div>
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta http-equiv="X-UA-Compatible" content="edge" />
+    <meta charset="utf-8">
+    <title>去上学</title>
+    <!--[if lt IE 11]>
+<script src="__HOME__js/html5shiv.min.js"></script>
+<script src="__HOME__js/respond.min.1.4.2.js"></script>
+<![endif]-->
+    <!--单独CSS-->
+    <link type="text/css" rel="stylesheet" href="__HOME__css/style.css" />
+    <!--公共样式+公共JS-->
+    <link type="text/css" rel="stylesheet" href="__HOME__css/common.css">
+    <link rel="stylesheet" href="__HOME__css/animate.min.css">
+    <script type="text/javascript" src="__HOME__js/wow.min.js"></script>
+    <script type="text/javascript" src="__HOME__js/jquery.js"></script>
+    <script type="text/javascript" src="__HOME__js/placeholder.js"></script>
+    <script type="text/javascript" src="__HOME__js/jquery.SuperSlide.2.1.js"></script>
+    <!--单独JS-->
+    <script type="text/javascript" src="__HOME__js/all_js.js"></script>
+</head>
+
+<body>
+    <!--头部-->
+    <div class="g_header wid1240 auto fix">
+        <div class="g_logo fl">
+            <a href="index.html"><img src="__HOME__images/g8.png" width="150" height="60"></a>
+        </div>
+        <div class="g_nav fl">
+            <a href="index.html" class="cli">首页</a>
+            <a href="#">了解去上学</a>
+            <a href="#">品牌课程体系</a>
+            <a href="#">营销与落地支持</a>
+            <a href="#">在线合作</a>
+            <a href="#" class="xz">申请试用</a>
+        </div>
+        <div class="g_dh fr">
+            <img src="__HOME__images/g2.png" width="28" height="28" class="dh_1">
+            <img src="__HOME__images/g9.png" width="162" height="18" class="dh_2">
         </div>
     </div>
-    <script type="text/javascript">
-        jQuery(".slideBox").slide({
-            mainCell: ".bd ul",
-            autoPlay: true
-        });
-    </script>
-    <div class="kuai1 container auto fix">
-        <div id="left"><img src="__HOME__images/pic19.png" width="39" height="76" /></div>
-        <div class="big_middle">
-            <div id="middle">
-                <volist name="NAVS" id="val">
-                    <a href="{$val['url']}">
-                        <div class="img">
-                            <img src="{:thumb($val['setting']['ico_1'])}" width="74" height="55" class="img2">
-                            <img src="{:thumb($val['setting']['ico_2'])}" width="74" height="55" class="img3">
+    <!--主体-->
+    <div class="g_kuai1" style="background:url(__HOME__images/g1.png) center top no-repeat;">
+        <div class="wid1240 auto fix" id="loginForm">
+            <div class="g_huiyuan fr">
+                <b>会员登录</b>
+                <div class="g_shang">
+                    <ul>
+                        <li class="mb25"><span><img src="__HOME__images/g4.png" width="18" height="25"></span><input name="user" type="text" placeholder="请输入登录账号"></li>
+                        <li><span><img src="__HOME__images/g5.png" width="18" height="25"></span><input name="pass" type="text" placeholder="请输入登录密码"></li>
+                    </ul>
+                </div>
+                <div class="g_zhong fix">
+                    <div class="g_jizhu fix fl">
+                        <input name="jizhu" type="radio" class="r_01 fl">
+                        <div class="mmmg1 fl">
+                            <img src="__HOME__images/g10.png" class="mmg1">
+                            <img src="__HOME__images/g11.png" class="mmg2">
                         </div>
-                        <span>{$val['title']}</span>
-                    </a>
-                </volist>
-
-            </div>
-        </div>
-        <div id="right"><img src="__HOME__images/pic20.png" width="39" height="76" /></div>
-    </div>
-    <div class="jian"></div>
-</block>
-
-<block name="content">
-    <div class="kuai2 container auto fix">
-        <div class="top">
-            <a href="#">
-                <h2>{$CATEGORYS[1]['title']}</h2>
-                <img src="__HOME__images/pic22.png" width="307" height="24">
-            </a>
-        </div>
-        <div class="kuai2_l fs fl fix">
-            {$CATEGORYS[1]['description']}
-            <a href="{$CATEGORYS[1]['url']}">查看更多</a>
-        </div>
-        <div class="kuai2_r fr">
-			<embed src="{:C('VIDEO')}" quality="high" width="685" height="428" align="middle" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed>
-<!--             <video id="video" onclick="playPause()" controls loop width="685" height="428" poster="__HOME__images/pic25.jpg">
-                <source src="http://wslc.sypole.com/wp-content/themes/jfsd/video/video_1920x1080.ogv" type='video/ogg; codecs="theora, vorbis"' />
-                <source src="http://wslc.sypole.com/wp-content/themes/jfsd/video/video_1920x1080.webm" type='video/webm'>
-                <source src="http://wslc.sypole.com/wp-content/themes/jfsd/video/video_1920x1080.mp4" type='video/mp4'>
-                <p>Video is not visible, most likely your browser does not support HTML5 video</p>
-            </video> -->
-            <!-- <a href="#"><img src="__HOME__images/pic25.jpg" width="685" height="428"></a> -->
-        </div>
-    </div>
-    <script type="text/javascript">
-        function playPause() {
-            var myVideo = document.getElementById('video');
-            if (myVideo.paused) {
-                myVideo.play();
-            } else {
-                myVideo.pause();
-            }
-        }
-    </script>
-    <div class="jian"></div>
-
-    <div class="kuai3 container auto fix">
-        <div class="top">
-            <a href="{$CATEGORYS[2]['url']}">
-                <h2>{$CATEGORYS[2]['title']}</h2>
-                <img src="__HOME__images/pic26.png" width="221" height="24">
-            </a>
-        </div>
-        <div class="bigmiddle fix rel">
-            <div class="fix">
-                <div class="jiantou2">
-                    <div id="left2"></div>
-                    <div id="right2"></div>
+                    </div>
+                    <bdo class="fl">记住密码</bdo>
+                    <a href="javascript:void(0);" class="fr">忘记密码？</a>
+                </div>
+                <div class="g_xia">
+                    <input type="submit" value="登录" class="g_but1">
+                    <!-- <input type="button" value="免费注册" class="g_but2"> -->
                 </div>
             </div>
-            <div id="middle2">
-                <ul>
-                    <li class="fix">
-                        <volist name=":get_lists(2, 8)" id="val" offset="0" length="4">
-                            <div class="div2">
-                                <bdo>{:date('Y-m', $val['create_time'])}<i>{:date('d', $val['create_time'])}</i></bdo>
-                                <span>
-                              <em>{:msubstr($val['title'], 0, 25)}</em>
-                              <b>{:date('Y-m-d', $val['create_time'])}</b>
-                               {:msubstr($val['description'], 0, 70)}<a href="{$val['url']}">【详情】</a>
-                            </span>
+            <script type="text/javascript">
+                $("#loginForm input[type=submit]").bind("click", function(){
+                    var than = $(this),
+                        _user = $("#loginForm input[name=user]").val(),
+                        _pass = $("#loginForm input[name=pass]").val();
+                    if (_user == '') {
+                        alert("请输入登录账号"); return false;
+                    }
+                    if (_pass == '') {
+                        alert("请输入登录密码"); return false;
+                    }
+                    $.ajax({
+                        url: '{:U("System/Index/login")}',
+                        type: 'post',
+                        data: {user: _user, pass: _pass},
+                        dataType: 'json',
+                        beforeSend: function() {
+                            than.attr("disabled", true)
+                        },
+                        complete: function() {
+                            than.attr("disabled", false)
+                        },
+                        success: function(res) {
+                            if (res.status) {
+                                alert(res.info)
+                                location.href = res.url
+                            } else {
+                                alert(res.info)
+                            }
+                        },
+                        error: function() {
+                            alert("网络异常...")
+                        }
+                    })
+                })
+            </script>
+        </div>
+    </div>
+    <div class="g_kuai2" style="background:url(__HOME__images/g12.png) center top no-repeat;"></div>
+    <div class="g_kuai3" style="background:url(__HOME__images/g13.jpg) center top no-repeat;"></div>
+    <div class="g_kuai4">
+        <div class="g_kuai4_t">
+            <div class="wow bounceInDown">
+                <img src="__HOME__images/g15.png" width="849" height="180">
+            </div>
+        </div>
+        <div class="g_kuai4_nr fix">
+            <div class="g_div1">
+                <div class="wow slideInLeft">
+                    <div class="g_div1_xiao fix rel pb35">
+                        <div class="g_div1_da fix">
+                            <div class="g_nr fr">
+                                <img src="__HOME__images/g17.png" width="230" height="160" class="x1">
+                                <img src="__HOME__images/g18.png" width="245" height="160" class="x2">
+                                <p>原版高端Phonics启蒙课程设计，与 “提升听说”、“情境阅读”教改方向无缝对接。韵律趣味拼读教学，让孩子自主习得拼读方法。Sounds Great，最易懂、最快乐、最高效！
+                                    <a href="#"><img src="__HOME__images/g19.png" width="18" height="21"></a>
+                                </p>
                             </div>
-                        </volist>
-                    </li>
-                    <li class="fix">
-                        <volist name=":get_lists(2, 8)" id="val" offset="4" length="4">
-                            <div class="div2">
-                                <bdo>{:date('Y-m', $val['create_time'])}<i>{:date('d', $val['create_time'])}</i></bdo>
-                                <span>
-                              <em>{:msubstr($val['title'], 0, 25)}</em>
-                              <b>{:date('Y-m-d', $val['create_time'])}</b>
-                               {:msubstr($val['description'], 0, 70)}<a href="{$val['url']}">【详情】</a>
-                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wow slideInRight">
+                    <div class="g_div1_xiao2 fix rel pb35">
+                        <div class="g_div1_da2 fix">
+                            <div class="g_nr2 fl">
+                                <img src="__HOME__images/g17.png" width="230" height="160" class="x1">
+                                <img src="__HOME__images/g18.png" width="245" height="160" class="x2">
+                                <p>原版高端Phonics启蒙课程设计，与 “提升听说”、“情境阅读”教改方向无缝对接。韵律趣味拼读教学，让孩子自主习得拼读方法。Sounds Great，最易懂、最快乐、最高效！
+                                    <a href="#"><img src="__HOME__images/g25.png" width="19" height="21"></a>
+                                </p>
                             </div>
-                        </volist>
-                    </li>
-
-                </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="wow slideInLeft">
+                    <div class="g_div1_xiao fix rel pb35">
+                        <div class="g_div1_da fix">
+                            <div class="g_nr fr">
+                                <img src="__HOME__images/g17.png" width="230" height="160" class="x1">
+                                <img src="__HOME__images/g18.png" width="245" height="160" class="x2">
+                                <p>原版高端Phonics启蒙课程设计，与 “提升听说”、“情境阅读”教改方向无缝对接。韵律趣味拼读教学，让孩子自主习得拼读方法。Sounds Great，最易懂、最快乐、最高效！
+                                    <a href="#"><img src="__HOME__images/g26.png" width="18" height="21"></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wow slideInRight">
+                    <div class="g_div1_xiao2 fix rel pb35">
+                        <div class="g_div1_da2 fix">
+                            <div class="g_nr2 fl">
+                                <img src="__HOME__images/g17.png" width="230" height="160" class="x1">
+                                <img src="__HOME__images/g18.png" width="245" height="160" class="x2">
+                                <p>原版高端Phonics启蒙课程设计，与 “提升听说”、“情境阅读”教改方向无缝对接。韵律趣味拼读教学，让孩子自主习得拼读方法。Sounds Great，最易懂、最快乐、最高效！
+                                    <a href="#"><img src="__HOME__images/g27.png" width="18" height="21"></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wow slideInLeft">
+                    <div class="g_div1_xiao fix rel pb35">
+                        <div class="g_div1_da fix">
+                            <div class="g_nr fr">
+                                <img src="__HOME__images/g17.png" width="230" height="160" class="x1">
+                                <img src="__HOME__images/g18.png" width="245" height="160" class="x2">
+                                <p>原版高端Phonics启蒙课程设计，与 “提升听说”、“情境阅读”教改方向无缝对接。韵律趣味拼读教学，让孩子自主习得拼读方法。Sounds Great，最易懂、最快乐、最高效！
+                                    <a href="#"><img src="__HOME__images/g28.png" width="18" height="21"></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wow slideInRight">
+                    <div class="g_div1_xiao2 fix rel pb35">
+                        <div class="g_div1_da2 fix">
+                            <div class="g_nr2 fl">
+                                <img src="__HOME__images/g17.png" width="230" height="160" class="x1">
+                                <img src="__HOME__images/g18.png" width="245" height="160" class="x2">
+                                <p>原版高端Phonics启蒙课程设计，与 “提升听说”、“情境阅读”教改方向无缝对接。韵律趣味拼读教学，让孩子自主习得拼读方法。Sounds Great，最易懂、最快乐、最高效！
+                                    <a href="#"><img src="__HOME__images/g29.png" width="18" height="21"></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="jian"></div>
-
-    <div class="kuai4 fix">
-        <div class="top">
-            <a href="{$CATEGORYS[17]['url']}">
-                <h2>{$CATEGORYS[17]['title']}</h2>
-                <img src="__HOME__images/pic31.png" width="301" height="24">
-            </a>
-        </div>
-        <ul class="fix">
-            <volist name=":get_lists(17, 8)" id="val">
-                <li class="rel">
-                    <a href="{$val['url']}"><img src="{:thumb($val['image'])}"><span>{:msubstr($val['title'], 0, 25)}</span></a>
-                </li>
-            </volist>
-        </ul>
-        <div class="bigmore">
-            <a href="{$CATEGORYS[17]['url']}" class="more">查看更多>></a>
-        </div>
-    </div>
-
-    <div class="jian"></div>
-
-    <div class="kuai5 container auto fix">
-        <div class="top">
-            <a href="javascript:void(0);">
-                <h2>荣誉资质</h2>
-                <img src="__HOME__images/pic34.png" width="411" height="24">
-            </a>
-        </div>
-        <div class="zizhi">
-            <div id="left3"></div>
-            <div id="middle3">
-                <php>$banner_6 = get_banner(6);</php>
-                <empty name="banner_6">
-                    <a href="javascript:void(0);"><img src="__HOME__images/pic35.jpg" width="336" height="283"><span>荣誉资质名称01</span></a>
-                    <a href="javascript:void(0);"><img src="__HOME__images/pic35.jpg" width="336" height="283"><span>荣誉资质名称01</span></a>
-                    <a href="javascript:void(0);"><img src="__HOME__images/pic35.jpg" width="336" height="283"><span>荣誉资质名称01</span></a>
-                    <else />
-                    <volist name="banner_6" id="val">
-                        <a href="{$val['url']}"><img src="{:thumb($val['image'])}" width="336" height="283"><span>{$val['title']}</span></a>
-                    </volist>
-                </empty>
+    <div class="g_kuai5">
+        <div class="g_kuai5_t">
+            <div class="wow bounceInDown">
+                <img src="__HOME__images/g22.png" width="1123" height="189">
             </div>
-            <div id="right3"></div>
+        </div>
+        <div class="g_kuai5_nr fix">
+            <div class="g_big wid1240 auto fix">
+                <div class="g_div2 fl fix mr60">
+                    <div class="wow fadeInLeft">
+                        <div class="g_div2_l fl"><img src="__HOME__images/g30.png" width="69" height="58"></div>
+                    </div>
+                    <div class="wow fadeInRight">
+                        <div class="g_div2_r fl">
+                            <b>全思路教案</b> 全思路教学课件，囊括引入热身、呈现、操练、输出、拓展、总结内化全环节，落实到教学每一分钟和每一句教师用语。
+                            <a href="#">点击体验>>></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="g_div2 fl fix mr60">
+                    <div class="wow fadeInLeft">
+                        <div class="g_div2_l fl"><img src="__HOME__images/g31.png" width="69" height="58"></div>
+                    </div>
+                    <div class="wow fadeInRight">
+                        <div class="g_div2_r fl">
+                            <b>全思路教案</b> 全思路教学课件，囊括引入热身、呈现、操练、输出、拓展、总结内化全环节，落实到教学每一分钟和每一句教师用语。
+                            <a href="#">点击体验>>></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="g_div2 fl fix mr60 cli">
+                    <div class="wow fadeInLeft">
+                        <div class="g_div2_l fl"><img src="__HOME__images/g32.png" width="69" height="58"></div>
+                    </div>
+                    <div class="wow fadeInRight">
+                        <div class="g_div2_r fl">
+                            <b>全思路教案</b> 全思路教学课件，囊括引入热身、呈现、操练、输出、拓展、总结内化全环节，落实到教学每一分钟和每一句教师用语。
+                            <a href="#">点击体验>>></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="g_div2 fl fix mr60">
+                    <div class="wow fadeInLeft">
+                        <div class="g_div2_l fl"><img src="__HOME__images/g33.png" width="69" height="58"></div>
+                    </div>
+                    <div class="wow fadeInRight">
+                        <div class="g_div2_r fl">
+                            <b>全思路教案</b> 全思路教学课件，囊括引入热身、呈现、操练、输出、拓展、总结内化全环节，落实到教学每一分钟和每一句教师用语。
+                            <a href="#">点击体验>>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="jian"></div>
-    <div class="kuai6 container auto fix">
-        <div class="top">
-            <a href="{$CATEGORYS[20]['url']}">
-                <h2>{$CATEGORYS[20]['title']}</h2>
-                <img src="__HOME__images/pic40.png" width="274" height="24">
-            </a>
+    <div class="g_kuai6">
+        <div class="g_kuai6_t">
+            <div class="wow bounceInDown">
+                <img src="__HOME__images/g35.png" width="816" height="183">
+            </div>
         </div>
-        <div class="kuai6_nr">
-            {:W('Index/message')}
+        <div class="g_kuai6_nr">
+            <div class="g_big2 wid1240 auto fix">
+                <div class="wow zoomIn" data-wow-delay="0.2s">
+                    <div class="g_div3 fl mr50 ml20">
+                        <b>全思路课件</b>
+                        <img src="__HOME__images/g37.png" width="95" height="95">
+                        <span>全方位帮老师轻松、趣味呈现课堂，形象化辅助老师将复杂难点精炼化。</span>
+                        <a href="#">免费体验>>></a>
+                    </div>
+                </div>
+                <div class="wow zoomIn" data-wow-delay="0.4s">
+                    <div class="g_div3 fl mr30 ml25">
+                        <b class="b2">动态多媒体游戏</b>
+                        <img src="__HOME__images/g38.png" width="95" height="95">
+                        <span>课堂活动游戏巩固学生的词汇、句型、语法，动态多媒体游戏让操练输出更轻松有趣。</span>
+                        <a href="#" class="a2">免费体验>>></a>
+                    </div>
+                </div>
+                <div class="wow zoomIn" data-wow-delay="0.6s">
+                    <div class="g_div3 fl ml50">
+                        <b>知识点微视频 </b>
+                        <img src="__HOME__images/g39.png" width="95" height="95">
+                        <span>核心知识点图形结合，动画演示，学生轻松理解。</span>
+                        <a href="#">免费体验>>></a>
+                    </div>
+                </div>
+                <div class="wow zoomIn" data-wow-delay="0.8s">
+                    <div class="g_div3 g_div3_2 fl ml50">
+                        <b class="b2">互动工具</b>
+                        <img src="__HOME__images/g40.png" width="95" height="95">
+                        <span>微信作业智能分组排名，激发学生学习主动性。</span>
+                        <a href="#" class="a2">免费体验>>></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</block>
+    <div class="g_kuai7">
+        <div class="g_kuai7_t">
+            <div class="wow bounceInDown">
+                <img src="__HOME__images/g45.png" width="896" height="156">
+            </div>
+        </div>
+        <div class="g_kuai7_nr">
+            <div class="g_big3 wid1240 auto fix">
+                <div class="g_div4 fl">
+                    <div class="g_div4_t rel">
+                        <a href="#"><img src="__HOME__images/g46.jpg" width="400" height="230"></a>
+                        <img src="__HOME__images/g47.png" width="34" height="38" class="tu47">
+                    </div>
+                    <div class="g_div4_zi fix">
+                        <b>师 训</b>
+                        <ul class="fl mr18">
+                            <li><a href="#">初级新师培训</a></li>
+                            <li><a href="#">中级教师培训</a></li>
+                            <li><a href="#">教师升级技能培训</a></li>
+                        </ul>
+                        <ul class="fl">
+                            <li><a href="#">国际教师培训</a></li>
+                            <li><a href="#">阅读指导师培训</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="g_div5 fl">
+                    <div class="g_div5_zi fix">
+                        <b>营销支持</b>
+                        <ul class="fl mr18">
+                            <li><a href="#">全渠道市场支持</a></li>
+                            <li><a href="#">课程顾问支持</a></li>
+                            <li><a href="#">家长会支持</a></li>
+                        </ul>
+                    </div>
+                    <div class="g_div5_t rel">
+                        <a href="#"><img src="__HOME__images/g46.jpg" width="400" height="230"></a>
+                        <img src="__HOME__images/g48.png" width="34" height="38" class="tu48">
+                    </div>
+                </div>
+                <div class="g_div4 fl">
+                    <div class="g_div4_t rel">
+                        <a href="#"><img src="__HOME__images/g46.jpg" width="400" height="230"></a>
+                        <img src="__HOME__images/g49.png" width="34" height="38" class="tu49">
+                    </div>
+                    <div class="g_div4_zi g_div4_zi2 fix">
+                        <b>师 训</b>
+                        <ul class="fl mr18">
+                            <li><a href="#">初级新师培训</a></li>
+                            <li><a href="#">中级教师培训</a></li>
+                            <li><a href="#">教师升级技能培训</a></li>
+                        </ul>
+                        <ul class="fl">
+                            <li><a href="#">国际教师培训</a></li>
+                            <li><a href="#">阅读指导师培训</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="g_kuai8">
+        <div class="g_kuai8_t">
+            <div class="wow bounceInDown">
+                <img src="__HOME__images/g52.png" width="619" height="150">
+            </div>
+        </div>
+        <div class="g_kuai8_nr rel">
+            <div class="wid1240 auto fix">
+                <div class="g_kuai8_s">
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <a href="#"><img src="__HOME__images/g54.png" width="114" height="103"></a>
+                    <div class="more"><a href="#">更多客户</a></div>
+                </div>
+                <div class="g_kuai8_x fix">
+                    <div class="g_kuai8_x_l fl">
+                        <img src="__HOME__images/g57.png" width="57" height="54" class="tu57">
+                        <img src="__HOME__images/g58.png" width="269" height="26" class="tu58">
+                    </div>
+                    <div class="g_kuai8_x_r fr">
+                        <a href="#">
+                            <img src="__HOME__images/g60.png" width="57" height="54" class="tu60">
+                            <img src="__HOME__images/g61.png" width="221" height="31" class="tu61">
+                            <img src="__HOME__images/g62.png" width="20" height="25" class="tu62">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--尾部-->
+    <footer id="footer" class="fix auto">
+        <div class="div_4 fix">
+            <div class="wid1200 auto rel">
+                <img src="__HOME__images/img2.png" class="pos_2">
+                <table cellpadding="0" cellspacing="0" border="0" width="1200" class="ta_1">
+                    <tbody>
+                        <tr>
+                            <td width="300">
+                                <div class="div_3 fix">
+                                    <h2 class="h_1"><a href="#">关于我们</a></h2>
+                                    <ul class="nav_1 fix">
+                                        <li><a href="#">- 企业介绍</a></li>
+                                        <li><a href="#">- 去上学优势</a></li>
+                                        <li><a href="#">- 教研团队介绍</a></li>
+                                        <li><a href="#">- 合作客户</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td width="300">
+                                <div class="div_3 fix">
+                                    <h2 class="h_1"><a href="#">品牌课程体系</a></h2>
+                                    <ul class="nav_1 fix">
+                                        <li><a href="#">- 自然拼读英语启蒙课程</a></li>
+                                        <li><a href="#">- 3-6岁幼儿英语进阶课程</a></li>
+                                        <li><a href="#">- 6-12岁少儿英语腾飞课程</a></li>
+                                        <li><a href="#">- 6-16岁优浦专项技能课程</a></li>
+                                        <li><a href="#">- 3-16岁阅读课程（巴布书屋）</a></li>
+                                        <li><a href="#">- 6-16岁优浦特色创意课程</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td width="300">
+                                <div class="div_3 fix">
+                                    <h2 class="h_1"><a href="#">营销与落地支持</a></h2>
+                                    <ul class="nav_1 fix">
+                                        <li><a href="#">- 英浦大后台</a></li>
+                                        <li><a href="#">- 营销支持</a></li>
+                                        <li><a href="#">- 测评系统</a></li>
+                                        <li><a href="#">- 教师培训</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td width="300" class="bgnone">
+                                <div class="div_3 fix">
+                                    <h2 class="h_1"><a href="#">合作</a></h2>
+                                    <ul class="nav_1 fix">
+                                        <li><a>- 联系电话：<span>4000-870-850</span></a></li>
+                                        <li><a href="#">- 申请试用</a></li>
+                                        <li><a href="#">- 在线签约</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="div_2 tc">京ICP备16020147号 京公网安备2016061511号</div>
+    </footer>
+</body>
+
+</html>
